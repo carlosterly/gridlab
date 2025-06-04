@@ -45,6 +45,8 @@ a {
 }
 
 .index__body {
+  display: grid;
+  grid: min-content 1fr min-content / 1fr;
   margin: var(--space-s-m);
   font-family: "Open Sans", sans-serif;
   font-optical-sizing: auto;
@@ -52,13 +54,10 @@ a {
   font-style: normal;
   font-variation-settings: "wdth" 100;
 
-  display: grid;
-  grid: min-content 1fr min-content / 1fr;
-
   @include media(">=size-md") {
+    grid: min-content 1fr min-content / repeat(3, 1fr);
     margin-block: var(--space-s);
     margin-inline: var(--space-l);
-    grid: min-content 1fr min-content / repeat(3, 1fr);
   }
 }
 
@@ -75,8 +74,8 @@ a {
   align-items: center;
 
   & h1 {
-    font-size: var(--step-3);
     font-family: "Modak", system-ui;
+    font-size: var(--step-3);
     font-weight: 400;
     font-style: normal;
     color: var(--heading-colour);
@@ -84,11 +83,13 @@ a {
     margin-block-end: var(--space-l);
     @include trim-lowercase;
   }
+
   @include media(">=size-sm") {
-    align-items: end;
-    margin-block-end: var(--space-m);
-    gap: var(--space-s);
+    display: flex;
     flex-direction: row;
+    align-items: end;
+    gap: var(--space-s);
+    margin-block-end: var(--space-m);
     & h1 {
       margin-block: 0;
     }
@@ -105,43 +106,43 @@ a {
 .index__design-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: var(--space-l);
   grid-auto-rows: 1fr;
+  gap: var(--space-l);
   place-items: center;
   margin: 0;
   margin-block-end: var(--space-l);
 
   & a {
     display: block;
-    text-decoration: none;
     text-align: center;
+    text-decoration: none;
   }
 
   & img {
     inline-size: 100%;
     block-size: 100%;
+    aspect-ratio: var(--ratio-square);
     object-fit: cover;
     object-position: center;
-    box-shadow: var(--shadow-2);
-    aspect-ratio: var(--ratio-square);
     margin-block-end: var(--space-2xs);
+    box-shadow: var(--shadow-2);
 
     &:hover {
-      transition: box-shadow 0.2s ease-in-out;
       box-shadow: var(--shadow-4);
+      transition: box-shadow 0.2s ease-in-out;
     }
   }
 }
 
 .index__footer {
   text-align: center;
+
   @include media(">=size-md") {
+    display: grid;
+    grid-template-columns: subgrid;
     grid-column: 1 / 4;
     grid-row: 3 / 4;
     text-align: start;
-
-    display: grid;
-    grid-template-columns: subgrid;
 
     & .index__footer__copyright {
       grid-column: 1 / 2;
