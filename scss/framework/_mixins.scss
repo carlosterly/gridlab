@@ -1,0 +1,72 @@
+// https://codyhouse.co/blog/post/line-height-crop
+
+@mixin lhCrop($line-height) {
+  &::before {
+    content: "";
+    display: block;
+    height: 0;
+    width: 0;
+    margin-top: calc((1 - #{$line-height}) * 0.5em);
+  }
+}
+
+@mixin trim-outline {
+  border-block-start: 1px solid red;
+  border-block-end: 1px solid red;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+// https://css-tricks.com/two-css-properties-for-trimming-text-box-whitespace/
+
+// https://developer.chrome.com/blog/css-text-box-trim#feature_and_syntax_overview
+
+// https://codepen.io/web-dot-dev/pen/RNbyooE
+
+// trim both sides to the capital letters
+
+@mixin trim-capital {
+  text-box: trim-both cap alphabetic;
+}
+
+// trim both sides to the lowercase letter x
+
+@mixin trim-lowercase {
+  text-box: trim-both ex alphabetic;
+}
+
+// https://developer.chrome.com/docs/css-ui/css-text-wrap-balance
+
+@mixin text-wrap-balance {
+  text-wrap: balance;
+}
+
+@mixin text-wrap-pretty {
+  text-wrap: pretty;
+}
+
+// Grid mixins
+
+@mixin outer-grid {
+  display: grid;
+  inline-size: 100vw;
+  block-size: 100vh;
+}
+
+@mixin innner-grid {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+@mixin fullscreen-image {
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  block-size: 100%;
+  inline-size: 100%;
+  overflow: hidden;
+  object-fit: cover;
+}

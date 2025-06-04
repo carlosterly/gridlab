@@ -1,0 +1,372 @@
+@import "../framework/framework";
+
+:root {
+  --valencia: #da443c;
+  --black: black;
+  --lochinvar: #339999;
+  --porcelain: #eff3f3;
+
+  --main-bg-color: var(--porcelain);
+  --heading-color: var(--lochinvar);
+  --text-color: var(--black);
+
+  --serif: var(--font-antique);
+  --sans-serif: var(--font-humanist);
+
+  /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+  --fontsize--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+  --fontsize--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+  --fontsize-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --fontsize-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+  --fontsize-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+  --fontsize-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+  --fontsize-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+  --fontsize-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+
+  /* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6, */
+
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
+}
+
+body {
+  background: var(--porcelain);
+  margin: 0;
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns:
+    [begin] 40px
+    repeat(12, [mobile-column] minmax(0px, 1fr))
+    [end] 13px;
+  grid-template-rows: repeat(2, [mobile-row] auto);
+
+  @include media(">size-md") {
+    grid-template-columns:
+      [nav-start] 179px
+      [nav-end column1-start] 40px
+      [column1-end bodycopy-start] auto
+      [bodycopy-end column2-start] 43px
+      [column2-end aside-start] 157px
+      [aside-end lastcolumn-start] 13px
+      [lastcolumn-end];
+    grid-template-rows: repeat(2, [desktop-row] auto);
+  }
+}
+
+// 1st row
+
+.logo {
+  & img {
+    display: none;
+  }
+
+  background-image: url(https://res.cloudinary.com/liquidweb/image/upload/v1748858908/grid/trespasser/test_10.gif);
+  background-repeat: repeat-y;
+  grid-column: begin;
+  grid-row: mobile-row 1;
+
+  @include media(">size-md") {
+    & img {
+      display: block;
+    }
+    grid-column: nav-start / nav-end;
+    grid-row: desktop-row 1;
+  }
+}
+
+.navi {
+  grid-column: mobile-column 2 / mobile-column 12;
+  grid-row: mobile-row 1;
+
+  margin-block-start: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  @include media(">size-md") {
+    grid-column: nav-start / nav-end;
+    grid-row: desktop-row 1;
+    margin-block-start: var(--size-px-12);
+    margin-inline-start: var(--size-px-9);
+
+    flex-direction: column;
+  }
+
+  & div {
+    flex: 1;
+  }
+
+  @include media(">size-md") {
+    & div {
+      flex: none;
+    }
+  }
+
+  & a,
+  & strong {
+    display: block;
+    inline-size: 100%;
+    color: black;
+    font-family: var(--sans-serif);
+    font-size: var(--fontsize--1);
+    text-decoration: none;
+    border: 1px solid var(--black);
+    text-align: center;
+  }
+
+  & strong {
+    font-weight: bold;
+    background: #339999;
+  }
+
+  & a {
+    background: #fff;
+    &:hover {
+      color: black;
+      background: #cc3300;
+    }
+  }
+}
+
+.column1 {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+    grid-column: column1-start / column1-end;
+    grid-row: desktop-row 1;
+  }
+}
+
+.bodycopy {
+  display: flex;
+  justify-content: center;
+
+  & .mobile-logo {
+    margin-block-start: 4rem;
+  }
+
+  & .bodycopy-top-strip {
+    display: none;
+  }
+
+  grid-column: mobile-column 2 / mobile-column 12;
+  grid-row: mobile-row 1;
+
+  @include media(">size-md") {
+    grid-column: bodycopy-start / bodycopy-end;
+    grid-row: desktop-row 1 / desktop-row 2;
+    background-image: url(https://res.cloudinary.com/liquidweb/image/upload/v1748858906/grid/trespasser/test_04.gif);
+    background-repeat: repeat-x;
+    .mobile-logo {
+      display: none;
+    }
+  }
+
+  & .inner-wrapper {
+    max-inline-size: var(--size-content-3);
+  }
+}
+
+.column2 {
+  display: none;
+
+  @include media(">size-md") {
+    display: block;
+    grid-column: column2-start / column2-end;
+    grid-row: desktop-row 1;
+  }
+
+  @include media(">size-lg") {
+    background-image: url(https://res.cloudinary.com/liquidweb/image/upload/v1748858907/grid/trespasser/test_08.gif);
+    background-repeat: repeat-y;
+  }
+}
+
+.aside {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+    grid-column: aside-start / aside-end;
+    grid-row: desktop-row 1;
+  }
+}
+
+.lastcolumn {
+  grid-column: end;
+  grid-row: mobile-row 1;
+
+  background-image: url(https://res.cloudinary.com/liquidweb/image/upload/v1748858911/grid/trespasser/test_12.gif);
+  background-repeat: repeat-y;
+
+  @include media(">size-md") {
+    grid-column: lastcolumn-start / lastcolumn-end;
+    grid-row: desktop-row 1;
+  }
+}
+
+// 2nd row
+
+.logo_2ndRow {
+  grid-column: begin;
+  grid-row: mobile-row 2;
+
+  & img {
+    display: none;
+  }
+
+  @include media(">size-md") {
+    & img {
+      display: block;
+    }
+    grid-column: nav-start / nav-end;
+    grid-row: desktop-row 2;
+  }
+}
+
+.column1_2ndRow {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+    grid-column: column1-start / column1-end;
+    grid-row: desktop-row 2;
+    align-self: end;
+  }
+}
+
+.bodycopy_2ndRow {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+    grid-column: bodycopy-start / bodycopy-end;
+    grid-row: desktop-row 2;
+    align-self: end;
+  }
+}
+
+.bodycopy_2ndRow--innerItems {
+  display: none;
+  @include media(">size-md") {
+    display: flex;
+  }
+}
+
+.column2_2ndRow {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+    position: relative;
+    grid-column: column2-start / column2-end;
+    grid-row: desktop-row 2;
+
+    & img {
+      position: absolute;
+      inset-block-end: 0;
+    }
+  }
+  @include media(">size-lg") {
+    background-image: url(https://res.cloudinary.com/liquidweb/image/upload/v1748858907/grid/trespasser/test_08.gif);
+    background-repeat: repeat-y;
+  }
+}
+
+.aside_2ndRow {
+  grid-column: end;
+  grid-row: mobile-row 2;
+
+  & img {
+    display: none;
+  }
+
+  @include media(">size-md") {
+    & img {
+      display: block;
+    }
+
+    grid-column: aside-start / lastcolumn-end;
+    grid-row: desktop-row 2;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #006666;
+  &:active {
+    color: #660000;
+  }
+  &:visited {
+    color: #003333;
+  }
+  &:hover {
+    color: #cc3300;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--serif);
+  margin-block-end: 0;
+}
+
+h1 {
+  font-size: var(--fontsize-5);
+}
+
+h2 {
+  font-size: var(--fontsize-4);
+}
+
+h3 {
+  font-size: var(--fontsize-3);
+}
+
+h4 {
+  font-size: var(--fontsize-2);
+}
+
+h5 {
+  font-size: var(--fontsize-1);
+}
+
+h6 {
+  font-size: var(--fontsize-0);
+}
+
+p {
+  color: var(--text-color);
+  font-family: var(--sans-serif);
+  font-size: var(--fontsize-0);
+}
+
+.footer-details {
+  margin-block-start: 1rem;
+  font-family: var(--sans-serif);
+}

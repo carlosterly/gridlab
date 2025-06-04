@@ -1,0 +1,205 @@
+@import "../framework/framework.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap");
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.618,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --serif: "Oswald", serif;
+
+  --step--2: clamp(0.3954rem, 0.9155rem + -0.671vw, 0.7813rem);
+  --step--1: clamp(0.703rem, 1.0191rem + -0.4078vw, 0.9375rem);
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --step-1: clamp(1.35rem, 1.0465rem + 1.5174vw, 2.2225rem);
+  --step-2: clamp(1.62rem, 0.809rem + 4.055vw, 3.9516rem);
+  --step-3: clamp(1.944rem, 0.1764rem + 8.8382vw, 7.026rem);
+  --step-4: clamp(2.3328rem, -1.2009rem + 17.6684vw, 12.4921rem);
+  --step-5: clamp(2.7994rem, -3.9525rem + 33.7594vw, 22.211rem);
+
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
+}
+
+body {
+  block-size: 100dvh;
+  margin: 0;
+
+  font-family: var(--serif);
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, auto);
+
+  @include media(">=size-md") {
+    grid-template-columns: repeat(24, minmax(0, 1fr));
+    grid-template-rows: repeat(24, minmax(0, 1fr));
+  }
+}
+
+// Top part in black
+
+.gd-black {
+  padding-inline: var(--space-s);
+
+  grid-column: 1 / -1;
+  grid-row: 1 / 4;
+
+  @include media(">=size-md") {
+    padding-inline: 0;
+    grid-column: 1 / -1;
+    grid-row: 1 / 13;
+  }
+
+  background: black;
+  color: white;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+.gd-date {
+  grid-row: 1;
+  grid-column: 1 / -1;
+
+  @include media(">=size-md") {
+    grid-column: 16 / 21;
+    grid-row: 2;
+  }
+
+  & p {
+    @include trim-capital;
+    @include text-wrap-balance;
+  }
+}
+
+.gd-address {
+  grid-column: 1 / -1;
+  grid-row: 2;
+
+  @include media(">=size-md") {
+    grid-column: 16 / 21;
+    grid-row: 4;
+  }
+
+  & p {
+    @include trim-capital;
+    @include text-wrap-balance;
+    margin-block-start: 0;
+    max-inline-size: 60ch;
+  }
+}
+
+.gd-headline {
+  font-size: var(--step-5);
+  margin: 0;
+  padding: 0;
+  & .gd-headline-graphic,
+  & .gd-headline-dialogue {
+    @include trim-capital;
+  }
+
+  @include media(">=size-lg") {
+    font-size: var(--step-4);
+  }
+}
+
+.gd-headline-top {
+  grid-row: 3;
+  align-self: end;
+
+  @include media(">=size-md") {
+    align-self: start;
+    grid-column: 1;
+    grid-row: 8;
+  }
+
+  color: white;
+}
+
+// Bottom part in white
+
+.gd-white {
+  padding-inline: var(--space-s);
+
+  grid-column: 1 / -1;
+  grid-row: 4/7;
+
+  @include media(">=size-md") {
+    padding-inline: 0;
+    grid-row: 13 / 25;
+    grid-column: 1 / -1;
+  }
+
+  background: white;
+
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+.gd-headline-bottom {
+  grid-row: 1;
+
+  @include media(">=size-md") {
+    grid-column: 4 / 25;
+  }
+}
+
+.gd-byline {
+  grid-row: 2;
+
+  @include media(">=size-md") {
+    grid-column: 4 / 25;
+    grid-row: 9;
+  }
+
+  & p {
+    font-size: var(--step-1);
+    font-weight: 600;
+    margin: 0;
+    @include trim-capital;
+  }
+}
+
+.gd-conversations {
+  grid-row: 3;
+
+  @include media(">=size-md") {
+    grid-column: 16 / 23;
+    grid-row: 9;
+  }
+
+  @include media(">=size-lg") {
+    align-self: start;
+  }
+
+  & p {
+    font-weight: 100;
+    line-height: 1;
+    @include trim-capital;
+  }
+  & p:first-of-type {
+    margin-block-start: 0;
+  }
+}

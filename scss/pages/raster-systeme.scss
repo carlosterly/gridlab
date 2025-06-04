@@ -1,0 +1,128 @@
+@import "../framework/framework";
+
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+
+html {
+  --font-size-sm: clamp(0.8rem, 0.17vw + 0.76rem, 0.89rem);
+  --font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+  --font-size-md: clamp(1.25rem, 0.61vw + 1.1rem, 1.58rem);
+  --font-size-lg: clamp(1.56rem, 1vw + 1.31rem, 2.11rem);
+  --font-size-xl: clamp(1.95rem, 1.56vw + 1.56rem, 2.81rem);
+  --font-size-xxl: clamp(2.44rem, 2.38vw + 1.85rem, 3.75rem);
+  --font-size-xxxl: clamp(3.05rem, 3.54vw + 2.17rem, 5rem);
+}
+
+.raster__body {
+  background-color: red;
+  font-family: "Roboto", sans-serif;
+  padding: 1.5rem;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.rs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  grid-template-areas:
+    "heading"
+    "author"
+    "text1"
+    "text2"
+    "subheading"
+    "text3"
+    "text4"
+    "text5";
+}
+
+@media (min-width: $size-sm) {
+  .rs-grid {
+    max-inline-size: 800px;
+    grid: repeat(8, minmax(100px, min-content)) / repeat(4, 1fr);
+    gap: 0.5rem;
+    grid-template-areas:
+      ". . author author"
+      ". . . ."
+      "heading heading heading heading"
+      "text1 . text2 text2"
+      "subheading subheading subheading subheading"
+      "text3 . text4 text4"
+      ". . . ."
+      ". . text5 .";
+  }
+
+  .rs-grid > * {
+    border: 2px solid #ffb4ac;
+  }
+}
+
+.rs-grid__heading {
+  grid-area: heading;
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+
+  @media (min-width: $size-sm) {
+    font-size: var(--font-size-xxxl);
+  }
+}
+
+.rs-grid__subheading {
+  grid-area: subheading;
+  margin-block-end: 1rem;
+  font-size: var(--font-size-xl);
+  @media (min-width: $size-sm) {
+    font-size: var(--font-size-xxxl);
+    margin-block-start: 0;
+  }
+}
+
+.rs-grid__text1 {
+  grid-area: text1;
+  margin-block-start: 0;
+  font-size: var(--font-size-md);
+}
+
+.rs-grid__author {
+  grid-area: author;
+  margin-block-start: 0;
+  font-size: var(--font-size-md);
+}
+
+.rs-grid__text2 {
+  grid-area: text2;
+  font-size: var(--font-size-md);
+  @media (min-width: $size-sm) {
+    margin-block-start: 0;
+  }
+}
+
+.rs-grid__text3 {
+  grid-area: text3;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+  font-size: var(--font-size-md);
+  @media (min-width: $size-sm) {
+    margin-block-end: 0;
+  }
+}
+
+.rs-grid__text4 {
+  grid-area: text4;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+  font-size: var(--font-size-md);
+  @media (min-width: $size-sm) {
+    margin-block-end: 0;
+  }
+}
+
+.rs-grid__text5 {
+  grid-area: text5;
+  display: flex;
+  align-items: flex-end;
+  margin-block-start: 0;
+  font-size: var(--font-size-md);
+}

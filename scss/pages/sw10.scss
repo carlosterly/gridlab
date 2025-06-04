@@ -1,0 +1,137 @@
+@import "../framework/framework.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --text-colour: white;
+
+  --step--2: clamp(0.4498rem, 0.6019rem + -0.1963vw, 0.5627rem);
+  --step--1: clamp(0.7499rem, 0.8115rem + -0.0796vw, 0.7956rem);
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --step-1: clamp(1.5908rem, 1.4193rem + 0.8574vw, 2.0838rem);
+  --step-2: clamp(2.2493rem, 1.8235rem + 2.1292vw, 3.4736rem);
+  --step-3: clamp(3.1805rem, 2.2727rem + 4.5391vw, 5.7905rem);
+  --step-4: clamp(4.4973rem, 2.7041rem + 8.9661vw, 9.6528rem);
+  --step-5: clamp(6.3592rem, 2.9741rem + 16.9253vw, 16.0912rem);
+
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5drem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
+}
+
+body {
+  margin: 0;
+
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+
+  color: var(--text-colour);
+}
+
+.sw10-outer-grid {
+  @include outer-grid;
+
+  grid-template-columns: repeat(24, minmax(0, 1fr));
+  grid-template-rows: repeat(4, minmax(min-content, 1fr));
+
+  padding: var(--space-s);
+  
+  @include media(">=size-sm") {
+    grid-template-rows: repeat(24, minmax(0, 1fr));
+  }
+}
+
+.sw10-inner-grid {
+  @include innner-grid;
+}
+
+.sw10-main-image {
+  @include fullscreen-image;
+  object-position: center;
+}
+
+.sw10-lead-text {
+  grid-column: 2 / span 22;
+
+  line-height: 1;
+  font-size: var(--step-1);
+
+  @include media(">=size-sm") {
+    grid-column: 5 / span 19;
+    grid-row: 2;
+    @include trim-lowercase;
+  }
+}
+
+.sw10-main-heading {
+  grid-column: 2 / span 22;
+
+  @include trim-capital;
+  font-size: var(--step-5);
+  font-weight: 600;
+  letter-spacing: -2px;
+
+  @include media(">=size-sm") {
+    grid-column: 4 / span 14;
+    grid-row: 10;
+    letter-spacing: -11px;
+  }
+}
+
+.sw10-german-lorem {
+  grid-column: 2 / span 22;
+
+  & p {
+    @include trim-capital;
+    font-size: var(--step-0);
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-block-start: 0;
+    margin-block-end: 1rem;
+    &:nth-child(2) {
+      text-align: end;
+    }
+  }
+
+  @include media(">=size-sm") {
+    grid-column: 3 / span 21;
+    grid-row: 14;
+  }
+}
+
+.sw10-footer-text {
+  grid-column: 2 / span 22;
+  align-self: end;
+
+  font-size: var(--step-1);
+
+  @include media(">=size-sm") {
+    align-self: start;
+    @include trim-capital;
+    grid-column: 6 / span 18;
+    grid-row: 24;
+  }
+}

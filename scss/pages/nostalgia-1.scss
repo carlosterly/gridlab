@@ -1,0 +1,185 @@
+@import "../framework/framework.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Quattrocento:wght@400;700&display=swap");
+
+$brand-colour: blue;
+$page-colour: #a4a475;
+
+:root {
+  --brand-colour: blue;
+  --page-colour: #{$page-colour};
+
+  --fanwood: "Fanwood Text", serif;
+  --quattrocento: "Quattrocento", serif;
+
+  --heading-font: var(--quattrocento);
+  --body-font: var(--fanwood);
+  --link-font: var(--font-system-ui);
+}
+
+body {
+  margin: 10px 10px 0px 10px;
+  padding: 0px;
+  background: var(--page-colour);
+}
+
+.grid-wrapper {
+  background: white;
+
+  display: grid;
+  grid-template-columns: [col-start] 1fr;
+  grid-template-rows: repeat(5, [row-start] auto);
+
+  @include media(">size-md") {
+    grid-template-columns: repeat(24, [col-start] minmax(0, 1fr));
+    grid-template-rows: repeat(3, [row-start] auto);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--brand-colour);
+  font-family: var(--heading-font);
+  font-weight: 700;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+}
+
+h1 {
+  font-size: var(--font-size-fluid-3);
+}
+
+h2 {
+  font-size: var(--font-size-fluid-2);
+}
+
+p {
+  color: black;
+  font-family: var(--body-font);
+  font-size: var(--font-size-fluid-1);
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+}
+
+header {
+  grid-column: col-start 1 / span 24;
+  grid-row: row-start 1;
+
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+
+  & .header__image {
+    display: none;
+    @include media(">size-md") {
+      display: block;
+    }
+  }
+}
+
+nav {
+  grid-column: col-start 1;
+  grid-row: row-start 2;
+
+  padding: 0 1rem 1rem 1rem;
+
+  @include media(">size-md") {
+    grid-column: col-start 1 / span 4;
+  }
+
+  @include media(">size-lg") {
+    grid-column: col-start 1 / span 3;
+  }
+
+  & .nav__list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+    list-style: none;
+    padding-inline: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+
+    @include media(">size-md") {
+      flex-direction: column;
+    }
+  }
+
+  & a {
+    color: black;
+    background: #fff;
+    font: 1rem var(--link-font);
+    border: 1px solid #000;
+    display: block;
+    padding: 3px 5px;
+    margin: 7px;
+    inline-size: 120px;
+    &:hover {
+      background: lighten($page-colour, 10%);
+    }
+  }
+}
+
+article {
+  grid-column: col-start 1 / span 24;
+  grid-row: row-start 3;
+
+  padding: 0 1rem 1rem 1rem;
+
+  @include media(">size-md") {
+    grid-column: col-start 7 / col-start 22;
+    grid-row: row-start 2;
+  }
+
+  @include media(">size-lg") {
+    grid-column: col-start 7 / col-start 20;
+  }
+}
+
+aside {
+  grid-column: col-start 1;
+  grid-row: row-start 4;
+
+  @include media(">size-md") {
+    grid-column: col-start 21 / span 4;
+    grid-row: row-start 2;
+  }
+}
+
+footer {
+  grid-column: col-start 1;
+  grid-row: row-start 5;
+
+  @include media(">size-md") {
+    grid-column: col-start 1 / span 24;
+    grid-row: row-start 3;
+  }
+
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  font-family: var(--link-font);
+  font-size: var(--font-size-fluid-0);
+  padding: 0 1rem 1rem 1rem;
+
+  & .footer__topofpage {
+    display: flex;
+    gap: 0.5rem;
+  }
+}

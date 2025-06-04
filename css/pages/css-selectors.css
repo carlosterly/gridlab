@@ -1,0 +1,81 @@
+/* Universal selector */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: black;
+  margin: 0;
+  font-size: 1.2rem;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  margin-top: 2rem;
+  color: white;
+}
+
+.container {
+  width: min(70rem, 100% - clamp(2rem, 5vw, 4rem));
+  margin-inline: auto;
+}
+
+/* Descendant selector */
+.descendant {
+  border: 3px solid lime;
+}
+
+.descendant p {
+  /* color: orangered; */
+}
+
+.descendant > p {
+  color: dodgerblue;
+}
+
+/* Universal selector Flexbox demo */
+.even-columns {
+  display: flex;
+}
+
+.even-columns > * {
+  flex: 1;
+}
+
+/* Psuedo selectors */
+ul:hover {
+  /* color: red; */
+}
+
+li:first-child {
+  /* color: green; */
+}
+
+article > p:first-of-type {
+  font-size: 2rem;
+}
+
+li:nth-child(even) {
+  color: red;
+}
+
+p:not(.example) {
+  color: lime;
+}
+
+::-moz-selection {
+  background: orange;
+  color: black;
+}
+
+::selection {
+  background: orange;
+  color: black;
+}
+
+li::marker {
+  content: ":-)";
+  color: purple;
+}
+
+a[href="#"] {
+  color: red;
+}

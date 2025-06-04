@@ -1,0 +1,94 @@
+@import "core/core";
+
+@import url('https://fonts.googleapis.com/css?family=Vollkorn:400,700');
+
+$breakpoints: (phone: 720px, tablet: 768px, medium: 992px, desktop: 1250px);
+
+@mixin bp($point) {
+
+    @if $point==large {
+        @media (min-width: 1050px) {
+            @content;
+        }
+    }
+    @else if $point==medium {
+        @media (min-width: 800px) {
+            @content;
+        }
+    }
+    @else if $point==small {
+        @media (min-width: 300px) {
+            @content;
+        }
+    }
+}
+
+body {
+    font-family: 'Vollkorn', Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+    background-color: white;
+
+}
+
+body.page-2 {
+    background-color: #565051;
+}
+
+.page-1 {
+
+    p {
+        color: orange;
+        font-size: 6vw;
+        margin: 0;
+    }
+
+}
+
+.page-2-content {
+
+    position: relative;
+    background-color: white;
+    padding: 1vh 5vh 1vh 5vw;
+
+    p {
+        color: black;
+        font-size: 1.5rem;
+        line-height: 2.25rem;
+    }
+
+    blockquote {
+        max-width: 33.9rem;
+        color: orange;
+        font-size: 1.375rem;
+        margin: 0;
+    }
+
+    @include bp(medium) {
+
+        height: 100vh;
+        padding: 1vh 5vh 1vh 30vw;
+
+        blockquote {
+            opacity: .7;
+            font-size: 5.375rem;
+            position: absolute;
+            top: 25vh;
+            left: 4vw;
+        }
+
+        p {
+            font-size: 2.9vw;
+        }
+
+    }
+
+    @include bp(large) {
+        margin-left: 50vw;
+        padding: 1vh 5vh 1vh 15vw;
+
+        p {
+            font-size: 1.5vw;
+        }
+
+    }
+
+}

@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Modak&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+@import "../framework/framework";
+
+/* @link https://utopia.fyi/space/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+:root {
+  --heading-colour: #bd4e25;
+
+  --step--2: clamp(0.4498rem, 0.6019rem + -0.1963vw, 0.5627rem);
+  --step--1: clamp(0.7499rem, 0.8115rem + -0.0796vw, 0.7956rem);
+  --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --step-1: clamp(1.5908rem, 1.4193rem + 0.8574vw, 2.0838rem);
+  --step-2: clamp(2.2493rem, 1.8235rem + 2.1292vw, 3.4736rem);
+  --step-3: clamp(3.1805rem, 2.2727rem + 4.5391vw, 5.7905rem);
+  --step-4: clamp(4.4973rem, 2.7041rem + 8.9661vw, 9.6528rem);
+  --step-5: clamp(6.3592rem, 2.9741rem + 16.9253vw, 16.0912rem);
+
+  --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+  --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+  --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+  --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+  --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+  --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+  --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+  --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+  --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+
+  /* One-up pairs */
+  --space-3xs-2xs: clamp(0.3125rem, 0.2038rem + 0.5435vw, 0.625rem);
+  --space-2xs-xs: clamp(0.5625rem, 0.4321rem + 0.6522vw, 0.9375rem);
+  --space-xs-s: clamp(0.875rem, 0.7446rem + 0.6522vw, 1.25rem);
+  --space-s-m: clamp(1.125rem, 0.8641rem + 1.3043vw, 1.875rem);
+  --space-m-l: clamp(1.6875rem, 1.4049rem + 1.413vw, 2.5rem);
+  --space-l-xl: clamp(2.25rem, 1.7283rem + 2.6087vw, 3.75rem);
+  --space-xl-2xl: clamp(3.375rem, 2.8098rem + 2.8261vw, 5rem);
+  --space-2xl-3xl: clamp(4.5rem, 3.4565rem + 5.2174vw, 7.5rem);
+
+  /* Custom pairs */
+  --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
+}
+
+a {
+  text-decoration: none;
+}
+
+.index__body {
+  margin: var(--space-s-m);
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+
+  display: grid;
+  grid: min-content 1fr min-content / 1fr;
+
+  @include media(">=size-md") {
+    margin-block: var(--space-s);
+    margin-inline: var(--space-l);
+    grid: min-content 1fr min-content / repeat(3, 1fr);
+  }
+}
+
+.index__header {
+  @include media(">=size-md") {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+  }
+}
+
+.index__header__layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & h1 {
+    font-size: var(--step-3);
+    font-family: "Modak", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--heading-colour);
+    margin-block-start: var(--space-m);
+    margin-block-end: var(--space-l);
+    @include trim-lowercase;
+  }
+  @include media(">=size-sm") {
+    align-items: end;
+    margin-block-end: var(--space-m);
+    gap: var(--space-s);
+    flex-direction: row;
+    & h1 {
+      margin-block: 0;
+    }
+  }
+}
+
+.index__grid {
+  @include media(">=size-md") {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+  }
+}
+
+.index__design-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-l);
+  grid-auto-rows: 1fr;
+  place-items: center;
+  margin: 0;
+  margin-block-end: var(--space-l);
+
+  & a {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  & img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    object-position: center;
+    box-shadow: var(--shadow-2);
+    aspect-ratio: var(--ratio-square);
+    margin-block-end: var(--space-2xs);
+
+    &:hover {
+      transition: box-shadow 0.2s ease-in-out;
+      box-shadow: var(--shadow-4);
+    }
+  }
+}
+
+.index__footer {
+  text-align: center;
+  @include media(">=size-md") {
+    grid-column: 1 / 4;
+    grid-row: 3 / 4;
+    text-align: start;
+
+    display: grid;
+    grid-template-columns: subgrid;
+
+    & .index__footer__copyright {
+      grid-column: 1 / 2;
+    }
+    & .index__footer__top {
+      grid-column: 3 / 4;
+      justify-self: end;
+    }
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}

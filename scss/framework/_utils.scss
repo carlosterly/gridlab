@@ -1,0 +1,46 @@
+.resize {
+  resize: horizontal;
+  overflow: auto;
+}
+
+.img-responsive {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+/* Make images easier to work with */
+// img,
+// picture {
+//   max-inline-size: 100%;
+//   block-size: auto;
+//   display: block;
+// }
+
+.flow > * + * {
+  margin-block-start: var(--flow-space, 1em);
+}
+
+.u-flow > * + * {
+  margin-block-start: var(--space-s);
+}
+
+.u-flow--l > * + * {
+  margin-block-start: var(--space-l);
+}
+
+.u-flow--s-m > * + * {
+  margin-block-start: var(--space-s-m);
+}
+
+// https://css-tricks.com/inclusively-hidden/
+
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0); 
+  clip-path: inset(50%);
+  block-size: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap; 
+  inline-size: 1px;
+}

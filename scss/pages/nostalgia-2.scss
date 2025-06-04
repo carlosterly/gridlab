@@ -1,0 +1,212 @@
+@import "../framework/framework";
+
+@import url("https://fonts.googleapis.com/css2?family=Fjalla+One&family=Libre+Baskerville:wght@400;700&display=swap");
+
+:root {
+  --heading-font: "Fjalla One", sans-serif;
+  --body-font: "Libre Baskerville", serif;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+}
+
+// Link styles: Positioning → Box Model → Typography → Visual → Misc
+a {
+  background: none;
+  text-decoration: none;
+  color: #8f8e1c;
+  &:visited {
+    color: #336600;
+  }
+  &:hover {
+    color: #0000cc;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #666633;
+  font-family: var(--heading-font);
+  margin-block-start: 0;
+  margin-block-end: 2rem;
+}
+
+h1 {
+  font-size: var(--font-size-fluid-3);
+}
+
+h2 {
+  font-size: var(--font-size-fluid-2);
+}
+
+h3 {
+  font-size: var(--font-size-fluid-1);
+}
+
+p {
+  color: black;
+  font-family: var(--body-font);
+  font-size: var(--font-size-fluid-1);
+  margin-block-start: 0;
+  margin-block-end: 2rem;
+}
+
+.btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(84, 105, 212);
+  box-shadow:
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 1px 0px,
+    rgb(84 105 212) 0px 0px 0px 1px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+    rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 8px;
+  display: inline-block;
+  min-block-size: 28px;
+  transition:
+    background-color 0.24s,
+    box-shadow 0.24s;
+  :hover {
+    box-shadow:
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(0 0 0 / 12%) 0px 1px 1px 0px,
+      rgb(84 105 212) 0px 0px 0px 1px,
+      rgb(0 0 0 / 0%) 0px 0px 0px 0px,
+      rgb(60 66 87 / 8%) 0px 3px 9px 0px,
+      rgb(60 66 87 / 8%) 0px 2px 5px 0px;
+  }
+}
+
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: [mobile-column] 1fr;
+  grid-template-rows: repeat(4, auto);
+  padding: 1rem;
+  @include media(">size-md") {
+    grid-template-columns: [nav-start] 185px [nav-end section-start] 1fr [section-end];
+    grid-template-rows: [first-row-start] auto [first-row-end second-row-start] auto [second-row-end];
+    padding: 0;
+  }
+  @include media(">size-md") {
+    background: url(https://res.cloudinary.com/liquidweb/image/upload/v1748858890/grid/nostalgia-2/greenstrip.gif)
+      repeat-y top right;
+  }
+  @include media(">size-xl") {
+    margin: 0 auto;
+    max-inline-size: 1250px;
+  }
+}
+
+.upper__left {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+  }
+}
+
+.lower__left {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+    grid-column: nav-start / nav-end;
+    grid-row: second-row-start;
+  }
+}
+
+.lower__right {
+  display: none;
+  @include media(">size-md") {
+    display: block;
+  }
+}
+
+.mobile__logo {
+  margin: 0 auto;
+  padding: 0 0 1rem 0;
+  @include media(">size-md") {
+    display: none;
+  }
+}
+
+nav {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  @include media(">size-md") {
+    background:
+      url(https://res.cloudinary.com/liquidweb/image/upload/v1748858890/grid/nostalgia-2/greenstrip.webp) repeat-y top
+        left,
+      url(https://res.cloudinary.com/liquidweb/image/upload/v1748858890/grid/nostalgia-2/greenstrip.webp) repeat-y top
+        right;
+  }
+
+  & .nav__map {
+    display: none;
+    @include media(">size-md") {
+      display: block;
+    }
+  }
+
+  & .mobile-menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    @include media(">size-md") {
+      display: none;
+    }
+  }
+}
+
+section {
+  grid-column: mobile-column;
+  grid-row: 2 / 3;
+
+  @include media(">size-md") {
+    max-inline-size: 600px;
+    margin: 0 auto;
+
+    grid-column: section-start / section-end;
+    grid-row: first-row-start / first-row-end;
+  }
+
+  & .section__image {
+    margin: 2rem auto;
+  }
+}
+
+footer {
+  grid-column: mobile-column;
+  grid-template-rows: 3 / 4;
+
+  @include media(">size-md") {
+    grid-column: section-start / section-end;
+    grid-row: second-row-start / second-row-end;
+  }
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  & .top {
+    justify-self: end;
+  }
+
+  & .lower__right {
+    justify-self: end;
+  }
+}

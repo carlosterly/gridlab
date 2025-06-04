@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Blend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../../css/pages/blend.css" />
+  </head>
+
+  <!-- Original inspiration - https://pin.it/7nJ5RDYOE -->
+
+  <body class="blend-grid">
+    <picture class="blend-image">
+      <source
+        media="(min-width: 900px)"
+        srcset="
+          https://res.cloudinary.com/liquidweb/image/upload/c_crop,w_840,h_1080,x_-250,y_50/v1661243174/photography/portraits/Karla-Portrait-2-Colour.jpg
+        " />
+      <source
+        media="(min-width: 600px)"
+        srcset="
+          https://res.cloudinary.com/liquidweb/image/upload/v1661243174/photography/portraits/Karla-Portrait-2-Colour.jpg
+        " />
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/v1661243174/photography/portraits/Karla-Portrait-2-Colour.jpg"
+        alt="Karla" />
+    </picture>
+
+    <div class="new-stacking-context">
+      <h1 class="blend-heading">Blend\</h1>
+      <div class="blend-byline">
+        <h2>The Paper Issue</h2>
+        <div class="price">&euro;2,50</div>
+      </div>
+      <div class="blend-function">
+        <div class="issue-number">52</div>
+        <div class="issue-byline">Form Over Function</div>
+
+        <div class="flex-group">
+          <img
+            class="blend-barcode"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/UPC-A-036000291452.svg/220px-UPC-A-036000291452.svg.png"
+            alt="Barcode" />
+          <p class="blend-lorem">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, doloribus?</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

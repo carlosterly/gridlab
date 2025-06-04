@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Transitions Demo</title>
+    <link rel="stylesheet" type="text/css" href="../css/pages/view-transitions.css" />
+  </head>
+
+  <body>
+    <button class="switchLayout">Switch Layout</button>
+
+    <main>
+      <div class="article-link-wrapper">
+        <a href="#" class="article-link">
+          <img
+            src="https://res.cloudinary.com/liquidweb/image/upload/c_scale,w_600/v1666687306/photography/japan/Tokyo-2019-12.webp"
+            alt="" />
+          <h2>Ramen Article</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, possimus!</p>
+        </a>
+      </div>
+    </main>
+
+    <article class="hidden">
+      <h1 id="ramen-article">Ramen Article</h1>
+
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/c_scale,w_1200/v1666687306/photography/japan/Tokyo-2019-12.webp"
+        alt="" />
+
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
+        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
+        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
+        harum maxime ullam culpa?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
+        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
+        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
+        harum maxime ullam culpa?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
+        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
+        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
+        harum maxime ullam culpa?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
+        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
+        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
+        harum maxime ullam culpa?
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
+        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
+        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
+        harum maxime ullam culpa?
+      </p>
+    </article>
+
+    <script>
+      const button = document.querySelector(".switchLayout");
+      const div = document.querySelector("main");
+      const article = document.querySelector("article");
+
+      button.addEventListener("click", (e) => {
+        // e.preventDefault();
+        document.startViewTransition(() => {
+          console.log("Transition started");
+          div.classList.toggle("hidden");
+          article.classList.toggle("hidden");
+          console.log("Transition finished");
+        });
+      });
+    </script>
+  </body>
+</html>
