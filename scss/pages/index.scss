@@ -135,6 +135,7 @@ a {
 }
 
 .index__footer {
+
   text-align: center;
 
   & .index__footer__top {
@@ -157,9 +158,13 @@ a {
 
     & .index__footer__copyright {
       grid-column: 1 / 2;
+      grid-row: 1 / 2;
     }
+
     & .index__footer__top {
+      margin-block-end: 0;
       grid-column: 3 / 4;
+      grid-row: 1 / 2;
       justify-self: end;
     }
   }
