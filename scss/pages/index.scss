@@ -137,6 +137,17 @@ a {
 .index__footer {
   text-align: center;
 
+  & .index__footer__top {
+    margin-block-end: 1rem;
+  }
+
+  & .index__footer__top__link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-2xs);
+  }
+
   @include media(">=size-md") {
     display: grid;
     grid-template-columns: subgrid;
