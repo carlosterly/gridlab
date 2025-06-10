@@ -44,29 +44,3 @@
 @mixin text-wrap-pretty {
   text-wrap: pretty;
 }
-
-// Grid mixins
-
-@mixin outer-grid {
-  display: grid;
-  inline-size: 100vw;
-  block-size: 100vh;
-}
-
-@mixin innner-grid {
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-
-  display: grid;
-  grid-template-columns: subgrid;
-  grid-template-rows: subgrid;
-}
-
-@mixin fullscreen-image {
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-  block-size: 100%;
-  inline-size: 100%;
-  overflow: hidden;
-  object-fit: cover;
-}
