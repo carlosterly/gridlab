@@ -98,6 +98,30 @@ body {
   }
 }
 
+.sw10-border-cell-1 {
+  grid-column: 5 / span 6;
+  grid-row: 4 / span 10;
+  border: var(--space-3xs) solid white;
+}
+
+.sw10-border-cell-2 {
+  grid-column: 12 / span 6;
+  grid-row: 4 / span 10;
+  border: var(--space-3xs) solid white;
+}
+
+.sw10-border-cell-3 {
+  grid-column: 5 / span 6;
+  grid-row: 15 / span 8;
+  border: var(--space-3xs) solid white;
+}
+
+.sw10-border-cell-4 {
+  grid-column: 12 / span 6;
+  grid-row: 15 / span 8;
+  border: var(--space-3xs) solid white;
+}
+
 .sw10-main-heading {
   grid-column: 2 / span 22;
 
