@@ -3,7 +3,7 @@
   margin-inline: auto;
 }
 
-.container {
+@mixin container {
   inline-size: min(70rem, 100% - clamp(2rem, 5vw, 4rem));
   margin-inline: auto;
 }

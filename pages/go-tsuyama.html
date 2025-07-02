@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mask Image</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet"`` href="../../css/pages/go-tsuyama.css" />
+  </head>
+
+  <!-- Original inspiration - https://pin.it/XxkphCnyD -->
+
+  <body>
+    <picture>
+      <source
+        media="(min-width: 601px)"
+        srcset="
+          https://res.cloudinary.com/liquidweb/image/upload/c_crop,x_100,y_200,w_1200/v1666686095/photography/japan/Kanazawa-8.webp
+        " />
+      <source
+        media="(max-width: 600px)"
+        srcset="
+          https://res.cloudinary.com/liquidweb/image/upload/c_crop,x_400,y_300,w_800/v1666686095/photography/japan/Kanazawa-8.webp
+        " />
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/c_scale,w_1200/v1666686095/photography/japan/Kanazawa-8.webp"
+        alt="Kyoto River" />
+    </picture>
+
+    <h1>Go! Tsuyama</h1>
+    <h2>旅行雑誌</h2>
+    <p>春の橋 着物の少女 花の笑み</p>
+    <footer>
+      <time> 二千二十五</time>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/v1751277714/grid/svg/hishi-takara-musubi.svg"
+        alt="" />
+    </footer>
+  </body>
+</html>
