@@ -53,11 +53,11 @@ body {
   color: var(--text-colour);
 }
 
-picture {
-  grid-column: 1 / -1;
-  grid-row: 1 / -1;
-  inline-size: 100%;
-  block-size: 100%;
+picture { 
+   grid-column: 1 / -1;
+   grid-row: 1 / -1;
+   inline-size: 100%;
+   block-size: 100%;
   display: flex;
   & img {
     block-size: auto;

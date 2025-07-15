@@ -37,6 +37,7 @@ body {
 .container {
   display: grid;
   grid-template-columns: 1fr;
+  margin: 2rem;
 
   @include media(">size-md") {
     margin-block-start: 1rem;
