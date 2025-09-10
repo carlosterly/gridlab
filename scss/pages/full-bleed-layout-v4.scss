@@ -40,3 +40,84 @@
   /* Custom pairs */
   --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
 }
+
+body {
+  font-family: var(--serif);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--sans-serif);
+  font-weight: 600;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+}
+
+h1 {
+  font-size: var(--step-3);
+}
+
+h2 {
+  font-size: var(--step-2);
+}
+
+p {
+  font-family: var(--serif);
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+  font-size: var(--step--0);
+}
+
+.float-right {
+  float: inline-end;
+}
+
+.float-left {
+  float: inline-start;
+}
+
+// Kevn Powell's full-bleed layout
+// https://codepen.io/kevinpowell/pen/ExrZrrw
+
+.content-grid {
+  --padding-inline: 1rem;
+  --content-max-width: 900px;
+  --breakout-max-width: 1200px;
+
+  --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
+
+  display: grid;
+  grid-template-columns:
+    [full-width-start] minmax(var(--padding-inline), 1fr)
+    [breakout-start] minmax(0, var(--breakout-size))
+    [content-start] min(100% - (var(--padding-inline) * 2), var(--content-max-width))
+    [content-end]
+    minmax(0, var(--breakout-size)) [breakout-end]
+    minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+  grid-column: content;
+  background-color: hotpink;
+}
+
+.content-grid > .breakout {
+  grid-column: breakout;
+  background-color: paleturquoise;
+}
+
+.content-grid > .full-width {
+  grid-column: full-width;
+
+  display: grid;
+  grid-template-columns: inherit;
+
+  background-color: bisque;
+}

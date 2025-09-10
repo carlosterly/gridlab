@@ -40,3 +40,83 @@
   /* Custom pairs */
   --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
 }
+
+body {
+  font-family: var(--serif);
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--sans-serif);
+  font-weight: 600;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+}
+
+h1 {
+  font-size: var(--step-3);
+}
+
+h2 {
+  font-size: var(--step-2);
+}
+
+p {
+  font-family: var(--serif);
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+  font-size: var(--step--0);
+}
+
+.float-right {
+  float: inline-end;
+}
+
+.float-left {
+  float: inline-start;
+}
+
+.content {
+  --gap: clamp(1rem, 6vw, 3rem);
+  --full: minmax(var(--gap), 1fr);
+  --content: min(42rem, 100% - var(--gap) * 2);
+  --popout: minmax(0, 2rem);
+  --feature: minmax(0, 5rem);
+
+  display: grid;
+  grid-template-columns:
+    [full-start] var(--full)
+    [feature-start] var(--feature)
+    [popout-start] var(--popout)
+    [content-start] var(--content) [content-end]
+    var(--popout) [popout-end]
+    var(--feature) [feature-end]
+    var(--full) [full-end];
+}
+
+.content > * {
+  grid-column: content;
+  background-color: hotpink;
+}
+
+.popout {
+  grid-column: popout;
+  background-color: thistle;
+}
+
+.feature {
+  grid-column: feature;
+  background-color: paleturquoise;
+}
+
+.full {
+  grid-column: full;
+  border-radius: unset;
+  background-color: bisque;
+}

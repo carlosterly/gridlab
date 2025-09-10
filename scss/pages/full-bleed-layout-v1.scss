@@ -40,3 +40,54 @@
   /* Custom pairs */
   --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
 }
+
+body {
+  font-family: var(--serif);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--sans-serif);
+  font-weight: 600;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+}
+
+h1 {
+  font-size: var(--step-3);
+}
+
+h2 {
+  font-size: var(--step-2);
+}
+
+p {
+  font-family: var(--serif);
+  font-weight: 400;
+  margin-block-start: 0;
+  margin-block-end: 1rem;
+  font-size: var(--step-0);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns:
+    1fr
+    min(42rem, 100%)
+    1fr;
+  padding: 1rem;
+}
+
+.wrapper > * {
+  grid-column: 2;
+}
+
+.full-bleed {
+  inline-size: 100%;
+  block-size: auto;
+  grid-column: 1 / -1;
+}
