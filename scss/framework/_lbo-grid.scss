@@ -1,0 +1,140 @@
+/* ===========================
+   TOKENS + MODULAR SCALE
+   =========================== */
+.lbo-layout,
+.lbo-full-width {
+  --lbo-sz-pad-min: 2rem;
+
+  /* Modular scale ratio (can be swapped via data-scale) */
+  --lbo-scale: 1.25; /* Major Third default */
+
+  /* ✅ BASE: CONTENT */
+  // - For pure text comfort, you might want to try 840px (≈70 CPL @16px font).
+  // - There’s no single “right” value, but starting from 800–1060px covers most use cases.
+
+  --lbo-w-cont: 840px;
+
+  /* Larger than content (scale up) */
+  --lbo-w-pop: calc(var(--lbo-w-cont) * var(--lbo-scale));
+  --lbo-w-wide: calc(var(--lbo-w-cont) * var(--lbo-scale) * var(--lbo-scale));
+  --lbo-w-xwide: calc(var(--lbo-w-cont) * var(--lbo-scale) * var(--lbo-scale) * var(--lbo-scale));
+
+  /* Smaller than content (scale down) */
+  --lbo-w-inset: calc(var(--lbo-w-cont) / var(--lbo-scale));
+  --lbo-w-narrow: calc(var(--lbo-w-inset) / var(--lbo-scale));
+  --lbo-w-tiny: calc(var(--lbo-w-narrow) / var(--lbo-scale));
+}
+
+/* ===========================
+   SCALE VARIANTS (semantic names)
+   =========================== */
+.lbo-layout[data-scale="minor-second"] {
+  --lbo-scale: 1.067;
+}
+.lbo-layout[data-scale="major-second"] {
+  --lbo-scale: 1.125;
+}
+.lbo-layout[data-scale="minor-third"] {
+  --lbo-scale: 1.2;
+}
+.lbo-layout[data-scale="major-third"] {
+  --lbo-scale: 1.25;
+}
+.lbo-layout[data-scale="fourth"] {
+  --lbo-scale: 1.333;
+}
+.lbo-layout[data-scale="tritone"] {
+  --lbo-scale: 1.414;
+}
+.lbo-layout[data-scale="fifth"] {
+  --lbo-scale: 1.5;
+}
+.lbo-layout[data-scale="golden"] {
+  --lbo-scale: 1.618;
+}
+.lbo-layout[data-scale="sixth"] {
+  --lbo-scale: 1.667;
+}
+.lbo-layout[data-scale="major-seventh"] {
+  --lbo-scale: 1.778;
+}
+.lbo-layout[data-scale="minor-seventh"] {
+  --lbo-scale: 1.875;
+}
+.lbo-layout[data-scale="octave"] {
+  --lbo-scale: 2;
+}
+
+/* ===========================
+   GRID TEMPLATE (original gutter rhythm)
+   =========================== */
+.lbo-layout,
+.lbo-full-width {
+  display: grid;
+
+  grid-template-columns:
+    [lbo-full-start] minmax(var(--lbo-sz-pad-min), 1fr)
+    [lbo-xwide-start] minmax(0, calc((var(--lbo-w-xwide) - var(--lbo-w-wide)) * 0.5))
+    [lbo-wide-start] minmax(0, calc((var(--lbo-w-wide) - var(--lbo-w-pop)) * 0.5))
+    [lbo-pop-start] minmax(0, calc((var(--lbo-w-pop) - var(--lbo-w-cont)) * 0.5))
+    [lbo-cont-start] minmax(0, calc((var(--lbo-w-cont) - var(--lbo-w-inset)) * 0.5))
+    [lbo-inset-start] minmax(0, calc((var(--lbo-w-inset) - var(--lbo-w-narrow)) * 0.5))
+    [lbo-narrow-start] minmax(0, calc((var(--lbo-w-narrow) - var(--lbo-w-tiny)) * 0.5))
+    [lbo-tiny-start]
+    min(var(--lbo-w-tiny), 100% - var(--lbo-sz-pad-min) * 2)
+    [lbo-tiny-end]
+    minmax(0, calc((var(--lbo-w-narrow) - var(--lbo-w-tiny)) * 0.5))
+    [lbo-narrow-end]
+    minmax(0, calc((var(--lbo-w-inset) - var(--lbo-w-narrow)) * 0.5))
+    [lbo-inset-end]
+    minmax(0, calc((var(--lbo-w-cont) - var(--lbo-w-inset)) * 0.5))
+    [lbo-cont-end]
+    minmax(0, calc((var(--lbo-w-pop) - var(--lbo-w-cont)) * 0.5))
+    [lbo-pop-end]
+    minmax(0, calc((var(--lbo-w-wide) - var(--lbo-w-pop)) * 0.5))
+    [lbo-wide-end]
+    minmax(0, calc((var(--lbo-w-xwide) - var(--lbo-w-wide)) * 0.5))
+    [lbo-xwide-end]
+    minmax(var(--lbo-sz-pad-min), 1fr)
+    [lbo-full-end];
+}
+
+/* ===========================
+   DEFAULT AUTO-PLACEMENT
+   =========================== */
+.lbo-layout > *,
+.lbo-full-width > * {
+  grid-column: lbo-cont; /* place unclassed children in content track */
+}
+
+/* ===========================
+   UTILITY CLASSES
+   =========================== */
+.lbo-full {
+  grid-column: lbo-full;
+}
+.lbo-full-pad {
+  grid-column: lbo-full;
+  padding-inline: var(--lbo-sz-pad-min);
+}
+.lbo-xwide {
+  grid-column: lbo-xwide;
+}
+.lbo-wide {
+  grid-column: lbo-wide;
+}
+.lbo-pop {
+  grid-column: lbo-pop;
+}
+.lbo-cont {
+  grid-column: lbo-cont;
+} /* explicit, but redundant */
+.lbo-inset {
+  grid-column: lbo-inset;
+}
+.lbo-narrow {
+  grid-column: lbo-narrow;
+}
+.lbo-tiny {
+  grid-column: lbo-tiny;
+}
