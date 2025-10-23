@@ -1,12 +1,16 @@
 @import "../framework/framework.scss";
 
-@import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap");
 
 /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-  --serif: "Lora", serif;
-  --sans-serif: "Hind", sans-serif;
+  --heading: "Playfair Display", serif;
+  --body-text: "Libre Baskerville", serif;
+  --small-meta: "Poppins", sans-serif;
+
+  --page-border-colour: rgb(233, 233, 233);
+  --text-colour: #222;
 
   --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
   --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
@@ -43,55 +47,186 @@
 
 body {
   margin: 0;
-  // padding: 0;
-  // background: #fff;
+  border: var(--space-2xs) solid var(--page-border-colour);
+
+  font-family: var(--body-text);
+  font-size: var(--step--1);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-colour);
 }
-header.site-header {
-  padding: 1rem 2rem;
+
+p {
+  margin-block-start: 0;
+  margin-block-end: var(--space-m);
+}
+
+.site-header {
+  padding: var(--space-s) var(--space-m);
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  @include media(">=size-md") {
+    flex-direction: row;
+  }
+
+  & .branding {
+    font-family: var(--small-meta);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    font-size: var(--step-1);
+    margin-block-end: var(--space-xs);
+    @include media(">=size-md") {
+      margin-block-end: 0;
+    }
+  }
+
+  & nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    @include media(">=size-md") {
+      flex-wrap: nowrap;
+    }
+  }
+
+  & a {
+    font-family: var(--small-meta);
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+  }
+}
+
+.article-header {
+  text-align: center;
+  text-wrap: balance;
+
+  & p {
+    text-transform: uppercase;
+    margin-block-end: var(--space-s);
+  }
+
+  & p.category {
+    font-family: var(--small-meta);
+  }
+
+  & h1 {
+    font-size: var(--step-3);
+    margin: 0;
+    font-family: var(--heading);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-block-end: var(--space-m);
+  }
+}
+
+// Drop Cap styles
+
+// https://www.youtube.com/watch?v=nt7p3CuxUzA&t=22s
+
+// https://css-tricks.com/snippets/css/drop-caps/
+
+// https://developer.chrome.com/blog/control-your-drop-caps-with-css-initial-letter
+
+.article-body {
+  p.dropcap:first-letter {
+    initial-letter: 4;
+    margin-inline-end: 1rem;
+    line-height: 1;
+  }
 }
 
 figure {
-  margin: 0;
   padding: 0;
+  margin-block-start: 0;
+  margin-block-end: var(--space-l);
+  margin-inline: 0;
+  & figcaption {
+    font-size: var(--step--2);
+    text-align: center;
+    margin-block-start: var(--space-xs);
+  }
 }
 
-header.site-header nav ul {
+blockquote {
+  margin-block-start: 0;
+  margin-block-end: var(--space-m);
+  margin-inline: 0;
+  padding: 0;
+  font-size: var(--step-3);
+
+  font-weight: 600;
+  line-height: 1.1;
+  font-family: var(--heading);
+  @include trim-capital;
+
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.social {
   display: flex;
-  gap: 1.5rem;
+  gap: 2.5rem;
+  justify-content: center;
+  align-items: center;
   list-style: none;
-  margin: 0;
+  margin-block: var(--space-m);
   padding: 0;
+  & svg {
+    inline-size: var(--space-m);
+    block-size: var(--space-m);
+    fill: var(--text-colour);
+  }
 }
-header.site-header a {
-  text-decoration: none;
-  color: inherit;
-  font-weight: 500;
+
+aside {
+  & ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  & li {
+    margin-block-end: 1rem;
+  }
 }
-article img {
-  // max-width: 100%;
-  // height: auto;
-  // display: block;
-}
-aside ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-aside li {
-  margin-bottom: 1rem;
-}
-.related ul {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.related img {
-  width: 100%;
-  border-radius: 4px;
+
+.related {
+  margin-block: var(--space-l);
+  & h2 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-block: var(--space-s);
+  }
+  & ul {
+    display: flex;
+    flex-direction: row;
+    // flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  & li {
+    text-align: center;
+  }
+  & img {
+    aspect-ratio: 1 / 1;
+    inline-size: 200px;
+  }
+  & span {
+    margin-block-start: var(--space-xs);
+  }
+  & a {
+    font-size: var(--step--2);
+    text-decoration: none;
+  }
 }
