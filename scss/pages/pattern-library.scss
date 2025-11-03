@@ -43,7 +43,7 @@
 
 body {
   font-family: var(--serif);
-  margin: 0;
+  margin: 1rem;
 }
 
 h1,
@@ -74,10 +74,46 @@ p {
   font-size: var(--step--0);
 }
 
+ul {
+  margin-block-start: 0;
+  // margin-block-end: 1rem;
+  padding-inline-start: 1.5rem;
+}
+
 .float-right {
   float: inline-end;
 }
 
 .float-left {
   float: inline-start;
+}
+
+.demo-box {
+  background: steelblue;
+  color: #fff;
+  /* text-align: center; */
+  /* padding: 1rem; */
+  margin: 0.25rem 0;
+  border-radius: 4px;
+}
+.lbo-xwide.demo-box {
+  background: #6a1b9a;
+}
+.lbo-wide.demo-box {
+  background: #4527a0;
+}
+.lbo-pop.demo-box {
+  background: #1565c0;
+}
+.lbo-cont.demo-box {
+  background: #00897b;
+}
+.lbo-inset.demo-box {
+  background: #ef6c00;
+}
+.lbo-narrow.demo-box {
+  background: #c62828;
+}
+.lbo-tiny.demo-box {
+  background: #37474f;
 }
