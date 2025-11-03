@@ -200,31 +200,94 @@ aside {
 
 .related {
   margin-block: var(--space-l);
+
   & h2 {
     text-align: center;
     text-transform: uppercase;
     margin-block: var(--space-s);
   }
+
   & ul {
     display: flex;
     flex-direction: row;
-    // flex-wrap: wrap;
     justify-content: space-around;
     gap: 1rem;
     list-style: none;
     padding: 0;
     margin: 0;
+
+    inline-size: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    anchor-name: --carousel;
+
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::scroll-button(right),
+    &::scroll-button(left) {
+      content: "→";
+      border: none;
+      background-color: black;
+      color: white;
+      font-size: 3rem;
+      block-size: 60px;
+      inline-size: 60px;
+      border-radius: 50%;
+      padding-block-end: 0.1em;
+      cursor: pointer;
+      position: fixed;
+      position-anchor: --carousel;
+      position-area: right center;
+      translate: -50%;
+    }
+
+    &::scroll-button(left) {
+      content: "←";
+      position-area: left center;
+      translate: 50%;
+    }
+
+    &::scroll-button(right):disabled,
+    &::scroll-button(left):disabled {
+      opacity: 0.5;
+      cursor: auto;
+    }
+
+    & li {
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+      text-align: center;
+
+      @include media(">=size-sm") {
+        flex: 0 0 auto;
+      }
+
+      &::scroll-marker {
+        content: "";
+        block-size: 1em;
+        inline-size: 1em;
+        background-color: blue;
+        border-radius: 50%;
+      }
+    }
   }
-  & li {
-    text-align: center;
-  }
+
   & img {
     aspect-ratio: 1 / 1;
-    inline-size: 200px;
+
+    @include media(">=size-sm") {
+      inline-size: 200px;
+    }
   }
+
   & span {
     margin-block-start: var(--space-xs);
   }
+
   & a {
     font-size: var(--step--2);
     text-decoration: none;
