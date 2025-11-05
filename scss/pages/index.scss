@@ -108,25 +108,17 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   grid-auto-rows: auto;
   gap: var(--space-l);
-  place-items: center;
   margin: 0;
   margin-block-end: var(--space-l);
 
-  & li {
-    grid-row: span 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: subgrid;
-  }
-
   & a {
-    aspect-ratio: var(--ratio-square);
     display: block;
     text-align: center;
     text-decoration: none;
   }
 
   & img {
+    aspect-ratio: var(--ratio-square);
     inline-size: 100%;
     block-size: 100%;
 
