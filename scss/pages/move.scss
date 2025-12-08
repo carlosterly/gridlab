@@ -47,10 +47,8 @@
   --space-s-l: clamp(1.125rem, 0.9286rem + 1.3095vw, 2.5rem);
 }
 
-html,
 body {
   margin: 0;
-  padding: 0;
   block-size: 100%;
   inline-size: 100%;
   overflow: hidden;
@@ -73,36 +71,23 @@ body {
   }
 }
 
-img {
+picture {
   grid-column: 1 / -1;
   grid-row: 2 / 4;
 
   inline-size: 100%;
   block-size: 100%;
-  object-fit: cover;
-  object-position: top;
+  display: flex;
+  & img {
+    block-size: auto;
+    inline-size: 100%;
+    object-fit: cover;
+    object-position: top;
+  }
 
   @include media(">=size-sm") {
     grid-column: 1 / -1;
     grid-row: 1 / -1;
-    // position: absolute;
-  }
-}
-
-.image-mobile {
-  display: block;
-}
-
-.image-desktop {
-  display: none;
-}
-
-@include media(">=size-sm") {
-  .image-mobile {
-    display: none;
-  }
-  .image-desktop {
-    display: block;
   }
 }
 

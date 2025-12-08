@@ -9,6 +9,79 @@
   block-size: auto;
 }
 
+/* Debug overlay on the picture element (mobile-first) */
+
+.picture-debug {
+  position: relative;
+
+  &::after {
+    content: "viewport < #{$size-xxs} (default)";
+    position: absolute;
+    inset-inline-start: 0.5rem;
+    inset-block-start: 0.5rem;
+    background: rgba(255, 255, 255, 0.85);
+    color: #111;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    z-index: 999;
+    pointer-events: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    white-space: nowrap;
+  }
+}
+
+/* Breakpoints using variables from _variables.scss (smallest → largest) */
+
+@media (min-width: #{$size-xxs}) {
+  .picture-debug::after {
+    content: "xxs (>= #{$size-xxs})";
+    background: rgba(255, 245, 230, 0.95);
+  }
+}
+
+@media (min-width: #{$size-xs}) {
+  .picture-debug::after {
+    content: "xs (>= #{$size-xs})";
+    background: rgba(255, 235, 235, 0.95);
+  }
+}
+
+@media (min-width: #{$size-sm}) {
+  .picture-debug::after {
+    content: "sm (>= #{$size-sm})";
+    background: rgba(255, 230, 150, 0.95);
+  }
+}
+
+@media (min-width: #{$size-md}) {
+  .picture-debug::after {
+    content: "md (>= #{$size-md})";
+    background: rgba(200, 240, 200, 0.95);
+  }
+}
+
+@media (min-width: #{$size-lg}) {
+  .picture-debug::after {
+    content: "lg (>= #{$size-lg})";
+    background: rgba(180, 230, 255, 0.95);
+  }
+}
+
+@media (min-width: #{$size-xl}) {
+  .picture-debug::after {
+    content: "xl (>= #{$size-xl})";
+    background: rgba(220, 200, 255, 0.95);
+  }
+}
+
+@media (min-width: #{$size-xxl}) {
+  .picture-debug::after {
+    content: "xxl (>= #{$size-xxl})";
+    background: rgba(240, 230, 200, 0.95);
+  }
+}
+
 /* Make images easier to work with */
 // img,
 // picture {
