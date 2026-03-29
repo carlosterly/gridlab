@@ -67,32 +67,39 @@ body {
 }
 
 .hidden {
-  display: none;
+  margin-block-start: 0;
 }
 
-main {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Use auto-fit with a flexible min/max so cards flow left-to-right and wrap */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: var(--space-s);
 
-  & a {
+  a {
     text-decoration: none;
     color: var(--text);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    block-size: 100%;
   }
 
-  & .article-link-wrapper {
+  .article-link-wrapper {
     border: 1px solid var(--blue);
     padding: 1rem;
   }
 
-  & img {
-    view-transition-name: article-image;
-    // inline-size: 100%;
-    // block-size: 100%;
-    // object-fit: cover;
+  img {
+    /* view-transition-name will be assigned per-article by JS to ensure unique names */
+    inline-size: 100%;
+    block-size: auto;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
   }
 
-  & h2 {
+  h2 {
     // view-transition-name: article-heading;
     font-size: var(--step-2);
     margin-block-start: var(--space-s);
@@ -100,7 +107,7 @@ main {
     @include trim-capital;
   }
 
-  & p {
+  p {
     @include merriweather;
     font-size: var(--step--1);
     margin-block-start: 0;
@@ -127,17 +134,58 @@ article {
   }
 
   & img {
-    view-transition-name: article-image;
+    /* view-transition-name will be assigned per-article by JS to ensure unique names */
     inline-size: 100%;
-    block-size: 100%;
+    block-size: auto;
+    aspect-ratio: 16/9;
     object-fit: cover;
+    object-position: center;
+    max-height: 60vh;
+    display: block;
   }
-}
-
-.switchLayout {
-  margin-block-end: var(--space-s);
 }
 
 .changeGrid {
   grid-template-columns: repeat(2, 1fr);
+}
+
+/* Article header: place close button to the right of the heading */
+.article-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.article-header h1 {
+  margin: 0;
+  font-size: var(--step-5);
+}
+
+.closeArticle {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.closeArticle:focus-visible {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+/* Show focus indicators for keyboard users on the article heading */
+.article-header h1:focus {
+  outline: none;
+}
+.article-header h1:focus-visible {
+  outline: 2px solid Highlight;
+  outline-offset: 2px;
+}
+
+/* Suppress outline when focus was programmatically set after a pointer-initiated open */
+.article-header h1[data-suppress-focus]:focus {
+  outline: none !important;
 }

@@ -1,80 +1,686 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View Transitions Demo</title>
-    <link rel="stylesheet" type="text/css" href="../css/pages/view-transitions.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/pages/view-transitions.css" />
   </head>
 
   <body>
-    <button class="switchLayout">Switch Layout</button>
+    <main id="list-view" aria-hidden="false">
+      <div class="grid">
+        <div class="article-link-wrapper">
+          <a href="#article-1" class="article-link" data-article-id="article-1">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1666427915/photography/japan/Harajuku-1.jpg"
+              alt="Ramen shop exterior"
+              loading="lazy"
+              decoding="async" />
+            <h2>Ramen Article</h2>
+            <p>Quick ramen tour — click to open.</p>
+          </a>
+        </div>
 
-    <main>
-      <div class="article-link-wrapper">
-        <a href="#" class="article-link">
-          <img
-            src="https://res.cloudinary.com/liquidweb/image/upload/c_scale,w_600/v1666687306/photography/japan/Tokyo-2019-12.webp"
-            alt="" />
-          <h2>Ramen Article</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, possimus!</p>
-        </a>
+        <div class="article-link-wrapper">
+          <a href="#article-4" class="article-link" data-article-id="article-4">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1664520706/photography/japan/Takayama-2019-37.jpg"
+              alt="Night market"
+              loading="lazy"
+              decoding="async" />
+            <h2>Lanterns</h2>
+            <p>Evening lanterns and alleys.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a href="#article-5" class="article-link" data-article-id="article-5">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1663908967/photography/japan/Tokyo-2019-1.jpg"
+              alt="Cafe corner"
+              loading="lazy"
+              decoding="async" />
+            <h2>Cafe Corner</h2>
+            <p>Small cafes and storefronts.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a href="#article-6" class="article-link" data-article-id="article-6">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1663908967/photography/japan/Kanazawa-51.jpg"
+              alt="Night market"
+              loading="lazy"
+              decoding="async" />
+            <h2>Night Market</h2>
+            <p>Bustling market scenes.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a href="#article-7" class="article-link" data-article-id="article-7">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1666428059/photography/japan/Shinjuku-21.jpg"
+              alt="Temple steps"
+              loading="lazy"
+              decoding="async" />
+            <h2>Temple Steps</h2>
+            <p>Quiet temple approaches.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a href="#article-8" class="article-link" data-article-id="article-8">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1666428147/photography/japan/Tokyo-40.jpg"
+              alt="Neon signs"
+              loading="lazy"
+              decoding="async" />
+            <h2>Neon Signs</h2>
+            <p>Vibrant neon at dusk.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a href="#article-9" class="article-link" data-article-id="article-9">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1666428219/photography/japan/Ueno-1.jpg"
+              alt="Bridge view"
+              loading="lazy"
+              decoding="async" />
+            <h2>Bridge View</h2>
+            <p>River and bridge perspectives.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a href="#article-2" class="article-link" data-article-id="article-2">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1664447545/photography/japan/Takayama-2019-1.jpg"
+              alt="Sushi counter"
+              loading="lazy"
+              decoding="async" />
+            <h2>Sushi Article</h2>
+            <p>Short sushi snapshot.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a href="#article-3" class="article-link" data-article-id="article-3">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1664447542/photography/japan/Kanazawa-25.jpg"
+              alt="Street scene"
+              loading="lazy"
+              decoding="async" />
+            <h2>Street Photo</h2>
+            <p>City streets and visuals.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a
+            href="#article-10"
+            class="article-link"
+            data-article-id="article-10">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1666687306/photography/japan/Tokyo-2019-12.webp"
+              alt="Photo 10"
+              loading="lazy"
+              decoding="async" />
+            <h2>Article Ten</h2>
+            <p>Additional article.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a
+            href="#article-11"
+            class="article-link"
+            data-article-id="article-11">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1666687194/photography/japan/Tokyo-2019-2.jpg"
+              alt="Photo 11"
+              loading="lazy"
+              decoding="async" />
+            <h2>Article Eleven</h2>
+            <p>Additional article.</p>
+          </a>
+        </div>
+
+        <div class="article-link-wrapper">
+          <a
+            href="#article-12"
+            class="article-link"
+            data-article-id="article-12">
+            <img
+              src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_600/v1664447545/photography/japan/Kyoto-70.jpg"
+              alt="Photo 12"
+              loading="lazy"
+              decoding="async" />
+            <h2>Article Twelve</h2>
+            <p>Additional article.</p>
+          </a>
+        </div>
       </div>
     </main>
 
-    <article class="hidden">
-      <h1 id="ramen-article">Ramen Article</h1>
+    <!-- Multiple article views: each card opens its matching article -->
+    <article
+      id="article-1"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-1" tabindex="-1">Ramen Article</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1666427915/photography/japan/Harajuku-1.jpg"
+        alt="Ramen shop exterior" />
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum a
+        dolor sit amet arcu tincidunt fermentum. Integer euismod, lectus vitae
+        sodales luctus, nisl urna facilisis justo, eget facilisis lectus ipsum
+        nec purus.
+      </p>
+      <p>
+        Curabitur feugiat, nunc sed aliquet volutpat, nisl urna cursus ex, a
+        gravida lectus neque in ante. Praesent sit amet ligula id lorem pretium
+        posuere.
+      </p>
+      <ul>
+        <li>Handmade broth techniques</li>
+        <li>Regional noodle varieties</li>
+        <li>Recommended garnishes</li>
+      </ul>
+    </article>
 
+    <article
+      id="article-2"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-2" tabindex="-1">Sushi Article</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1664447545/photography/japan/Takayama-2019-1.jpg"
+        alt="Sushi counter" />
+      <p>
+        Short sushi content describing classic nigiri and seasonal fish. Aliquam
+        erat volutpat. Phasellus id nibh ut metus placerat porttitor.
+      </p>
+      <p>
+        Etiam vitae sem sit amet nibh convallis aliquet. Suspendisse potenti.
+        Integer vitae sapien ut nibh fermentum faucibus.
+      </p>
+    </article>
+
+    <article
+      id="article-3"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-3" tabindex="-1">Street Photo</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1664447542/photography/japan/Kanazawa-25.jpg"
+        alt="Street scene" />
+      <p>
+        Street photography content with notes on composition and timing. Duis
+        nec risus euismod, gravida arcu vitae, malesuada lorem.
+      </p>
+      <p>
+        Morbi ac eros eget urna interdum feugiat. Sed sit amet magna vitae lacus
+        posuere cursus a a odio.
+      </p>
+    </article>
+
+    <article
+      id="article-4"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-4" tabindex="-1">Lanterns</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1664520706/photography/japan/Takayama-2019-37.jpg"
+        alt="Lanterns and alley" />
+      <p>
+        Evening lanterns and alley scenes. Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit. Integer at nibh ut mauris aliquet interdum.
+      </p>
+      <p>
+        Nullam facilisis, sapien nec placerat volutpat, urna velit aliquet
+        lorem, vitae feugiat nunc elit a libero.
+      </p>
+    </article>
+
+    <article
+      id="article-5"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-5" tabindex="-1">Cafe Corner</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1663908967/photography/japan/Tokyo-2019-1.jpg"
+        alt="Cafe corner" />
+      <p>
+        Small cafes and storefronts with cozy interiors and local specialties.
+        Sed gravida dolor vitae justo efficitur, nec aliquet risus dictum.
+      </p>
+      <p>
+        Vivamus non urna non velit tincidunt volutpat. Cras sed sem eu urna
+        posuere ullamcorper.
+      </p>
+    </article>
+
+    <article
+      id="article-6"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-6" tabindex="-1">Night Market</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1663908967/photography/japan/Kanazawa-51.jpg"
+        alt="Night market" />
+      <p>
+        Bustling market scenes and vendor stalls full of color and texture.
+        Phasellus congue neque vitae massa gravida, sed efficitur lorem
+        bibendum.
+      </p>
+      <p>
+        Aliquam erat volutpat. Integer vitae augue id nibh pretium accumsan.
+      </p>
+    </article>
+
+    <article
+      id="article-7"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-7" tabindex="-1">Temple Steps</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1666428059/photography/japan/Shinjuku-21.jpg"
+        alt="Temple steps" />
+      <p>
+        Quiet temple approaches and moss-covered steps. Vestibulum ante ipsum
+        primis in faucibus orci luctus et ultrices posuere cubilia curae.
+      </p>
+      <p>
+        Sed quis sapien sed nisl rhoncus bibendum. Aenean tempus lectus sed est
+        convallis tincidunt.
+      </p>
+    </article>
+
+    <article
+      id="article-8"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-8" tabindex="-1">Neon Signs</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1666428147/photography/japan/Tokyo-40.jpg"
+        alt="Neon signs" />
+      <p>
+        Vibrant neon at dusk and reflections in wet pavement. Integer euismod
+        felis sed magna cursus, id dictum eros ullamcorper.
+      </p>
+      <p>
+        Maecenas gravida, tortor vitae ultrices pretium, ex nunc faucibus ipsum,
+        sed efficitur lectus ipsum non risus.
+      </p>
+    </article>
+
+    <article
+      id="article-9"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-9" tabindex="-1">Bridge View</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/f_auto,c_scale,w_1200/v1666428219/photography/japan/Ueno-1.jpg"
+        alt="Bridge view" />
+      <p>
+        River and bridge perspectives capturing calm reflections and late light.
+        Curabitur vulputate magna at ipsum suscipit, ut fermentum quam luctus.
+      </p>
+      <p>
+        Phasellus non lorem eu arcu tincidunt efficitur. Integer id dolor in
+        sapien facilisis mattis.
+      </p>
+    </article>
+
+    <article
+      id="article-10"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-10" tabindex="-1">Article Ten</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
       <img
         src="https://res.cloudinary.com/liquidweb/image/upload/c_scale,w_1200/v1666687306/photography/japan/Tokyo-2019-12.webp"
-        alt="" />
+        alt="Photo 10" />
+      <p>
+        Article ten explores local crafts and neighborhood stories. Nulla
+        facilisi. Donec a augue id lacus tristique feugiat.
+      </p>
+      <p>
+        Suspendisse potenti. Nam in arcu id elit tincidunt convallis sit amet
+        vitae urna.
+      </p>
+    </article>
 
+    <article
+      id="article-11"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-11" tabindex="-1">Article Eleven</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/c_scale,w_1200/v1666687194/photography/japan/Tokyo-2019-2.jpg"
+        alt="Photo 11" />
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
-        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
-        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
-        harum maxime ullam culpa?
+        Article eleven contains travel notes and short anecdotes. Pellentesque
+        habitant morbi tristique senectus et netus et malesuada fames ac turpis
+        egestas.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
-        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
-        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
-        harum maxime ullam culpa?
+        In hac habitasse platea dictumst. Ut sit amet sem nec arcu suscipit
+        rhoncus.
+      </p>
+    </article>
+
+    <article
+      id="article-12"
+      class="hidden article-view"
+      aria-hidden="true"
+      style="display: none">
+      <div class="article-header">
+        <h1 id="ramen-article-12" tabindex="-1">Article Twelve</h1>
+        <button class="closeArticle" aria-label="Close article">Close</button>
+      </div>
+      <img
+        src="https://res.cloudinary.com/liquidweb/image/upload/c_scale,w_1200/v1664447545/photography/japan/Kyoto-70.jpg"
+        alt="Photo 12" />
+      <p>
+        Article twelve wraps up the series with a photo essay and
+        recommendations. Nam convallis, sapien vel hendrerit posuere, est nunc
+        efficitur urna, at luctus orci nisl id velit.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
-        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
-        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
-        harum maxime ullam culpa?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
-        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
-        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
-        harum maxime ullam culpa?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti quod quos quis distinctio quaerat suscipit
-        maxime, dolorem nostrum illo neque optio labore assumenda voluptatem earum maiores ex nam reprehenderit
-        repudiandae odit illum dolor esse officia beatae! Commodi, dolorem debitis ipsa ut, sequi vero hic nemo incidunt
-        harum maxime ullam culpa?
+        Donec vitae nibh sed urna fermentum dictum. Pellentesque a lectus nec
+        nisl vulputate pharetra.
       </p>
     </article>
 
     <script>
-      const button = document.querySelector(".switchLayout");
-      const div = document.querySelector("main");
-      const article = document.querySelector("article");
+      (function () {
+        // Assign unique view-transition-name values for each card/article image pair
+        function assignViewTransitionNames() {
+          document.querySelectorAll(".article-link").forEach((link) => {
+            const id = link.getAttribute("data-article-id");
+            if (!id) return;
+            const cardImg = link.querySelector("img");
+            const article = document.getElementById(id);
+            const articleImg = article ? article.querySelector("img") : null;
+            const name = `article-image-${id}`;
+            try {
+              if (cardImg)
+                cardImg.style.setProperty("view-transition-name", name);
+              if (articleImg)
+                articleImg.style.setProperty("view-transition-name", name);
+            } catch (e) {
+              // ignore if not supported
+            }
+          });
+        }
+        // run early
+        assignViewTransitionNames();
+        const listView = document.getElementById("list-view");
+        const articleLinks = document.querySelectorAll(".article-link");
+        let currentArticle = null;
+        let suppressNextFocus = false;
 
-      button.addEventListener("click", (e) => {
-        // e.preventDefault();
-        document.startViewTransition(() => {
-          console.log("Transition started");
-          div.classList.toggle("hidden");
-          article.classList.toggle("hidden");
-          console.log("Transition finished");
+        function queryFirstFocusable() {
+          return document.querySelector("main a, main button, main [tabindex]");
+        }
+
+        function setAriaStates(articleVisible, targetArticle) {
+          if (articleVisible) {
+            // show article, hide list
+            if (targetArticle) {
+              targetArticle.removeAttribute("aria-hidden");
+              targetArticle.removeAttribute("inert");
+              targetArticle.classList.remove("hidden");
+              targetArticle.style.display = "";
+            }
+            listView.setAttribute("aria-hidden", "true");
+            listView.setAttribute("inert", "");
+          } else {
+            // show list, hide article
+            listView.removeAttribute("aria-hidden");
+            listView.removeAttribute("inert");
+            if (targetArticle) {
+              targetArticle.setAttribute("aria-hidden", "true");
+              targetArticle.setAttribute("inert", "");
+              targetArticle.classList.add("hidden");
+              targetArticle.style.display = "none";
+            }
+          }
+        }
+
+        function moveFocus(articleVisible, targetArticle) {
+          const firstFocusableInList = queryFirstFocusable();
+          if (articleVisible) {
+            if (!targetArticle) return;
+            const closeBtn = targetArticle.querySelector(".closeArticle");
+            const heading = targetArticle.querySelector("h1");
+            if (suppressNextFocus && closeBtn) {
+              closeBtn.focus();
+              suppressNextFocus = false;
+            } else if (suppressNextFocus && heading) {
+              heading.setAttribute("data-suppress-focus", "");
+              heading.focus();
+              setTimeout(
+                () => heading.removeAttribute("data-suppress-focus"),
+                100,
+              );
+              suppressNextFocus = false;
+            } else if (heading) {
+              heading.focus();
+            } else if (closeBtn) {
+              closeBtn.focus();
+            }
+          } else {
+            if (firstFocusableInList) firstFocusableInList.focus();
+            else document.body.focus();
+          }
+        }
+
+        function toggleViews(showArticle, targetArticle) {
+          if (showArticle) {
+            // show article first so it can receive focus
+            if (targetArticle) {
+              targetArticle.classList.remove("hidden");
+              targetArticle.style.display = "";
+            }
+            moveFocus(true, targetArticle);
+            setAriaStates(true, targetArticle);
+            // finally hide list visually
+            listView.classList.add("hidden");
+            listView.style.display = "none";
+          } else {
+            // show list first
+            listView.classList.remove("hidden");
+            listView.style.display = "";
+            moveFocus(false, targetArticle);
+            setAriaStates(false, targetArticle);
+            if (targetArticle) {
+              targetArticle.classList.add("hidden");
+              targetArticle.style.display = "none";
+            }
+          }
+        }
+
+        function openArticle(targetArticle, opts = {}) {
+          if (!targetArticle) return;
+          currentArticle = targetArticle;
+          if (opts.viaPointer) suppressNextFocus = true;
+          if (typeof document.startViewTransition === "function") {
+            try {
+              const vt = document.startViewTransition(() =>
+                toggleViews(true, targetArticle),
+              );
+              if (vt && typeof vt.then === "function") vt.catch(() => {});
+            } catch (err) {
+              toggleViews(true, targetArticle);
+            }
+          } else {
+            toggleViews(true, targetArticle);
+          }
+          try {
+            history.pushState(
+              { view: "article", id: currentArticle.id },
+              "",
+              `#${currentArticle.id}`,
+            );
+          } catch (e) {
+            // ignore
+          }
+        }
+
+        function closeArticle() {
+          // If currentArticle was lost for any reason, fall back to the
+          // actually visible article in the DOM so close works.
+          const visible =
+            currentArticle ||
+            document.querySelector(".article-view:not(.hidden)");
+          if (!visible) return;
+
+          if (history.state && history.state.view === "article") {
+            // Let the browser handle history navigation if it owns the state
+            try {
+              history.back();
+            } catch (e) {
+              // ignore
+            }
+            currentArticle = null;
+            return;
+          }
+
+          if (typeof document.startViewTransition === "function") {
+            try {
+              const vt = document.startViewTransition(() =>
+                toggleViews(false, visible),
+              );
+              if (vt && typeof vt.then === "function") vt.catch(() => {});
+            } catch (err) {
+              toggleViews(false, visible);
+            }
+          } else {
+            toggleViews(false, visible);
+          }
+          currentArticle = null;
+        }
+
+        // Wire article links
+        articleLinks.forEach((link) => {
+          link.addEventListener("click", (ev) => {
+            ev.preventDefault();
+            const targetId = link.getAttribute("data-article-id");
+            const targetArticle = document.getElementById(targetId);
+            openArticle(targetArticle, { viaPointer: true });
+          });
         });
-      });
+
+        // Delegate close buttons
+        document.addEventListener("click", (e) => {
+          const btn = e.target.closest(".closeArticle");
+          if (!btn) return;
+          e.preventDefault();
+          const firstFocusableInList = queryFirstFocusable();
+          if (firstFocusableInList) {
+            firstFocusableInList.focus();
+          } else if (listView) {
+            listView.setAttribute("tabindex", "-1");
+            listView.focus();
+          } else {
+            document.body.setAttribute("tabindex", "-1");
+            document.body.focus();
+          }
+          try {
+            btn.blur();
+          } catch (ignore) {}
+          closeArticle();
+        });
+
+        // popstate: use view transitions for the closing path when supported
+        window.addEventListener("popstate", (e) => {
+          const state = e.state;
+          const hash = location.hash.replace("#", "");
+          const visibleArticle = document.querySelector(
+            ".article-view:not(.hidden)",
+          );
+          if ((state && state.view === "article") || hash) {
+            const id = (state && state.id) || hash;
+            const target = document.getElementById(id);
+            if (target && !visibleArticle) openArticle(target);
+          } else if (visibleArticle) {
+            if (typeof document.startViewTransition === "function") {
+              try {
+                const vt = document.startViewTransition(() =>
+                  toggleViews(false, visibleArticle),
+                );
+                if (vt && typeof vt.then === "function") vt.catch(() => {});
+              } catch (err) {
+                toggleViews(false, visibleArticle);
+              }
+            } else {
+              toggleViews(false, visibleArticle);
+            }
+          }
+        });
+
+        // Escape
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") {
+            const visibleArticle = document.querySelector(
+              ".article-view:not(.hidden)",
+            );
+            if (visibleArticle) closeArticle();
+          }
+        });
+      })();
     </script>
   </body>
 </html>
