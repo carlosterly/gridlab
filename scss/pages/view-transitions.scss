@@ -71,11 +71,40 @@ body {
   margin-block-start: 0;
 }
 
+/* 1. Vertical title accent (縦書き) — via pseudo-element */
+body::before {
+  content: "写真 — Photography";
+  font-family: "Zen Old Mincho", serif;
+  font-weight: 700;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  position: fixed;
+  top: 50%;
+  left: 0.5rem;
+  transform: translateY(-50%);
+  font-size: var(--step--2);
+  color: var(--border);
+  letter-spacing: 0.3em;
+  z-index: 10;
+  pointer-events: none;
+  opacity: 0.6;
+  display: none;
+  margin: 0;
+  padding: 0;
+  max-inline-size: none;
+  inline-size: auto;
+  block-size: auto;
+
+  @media (min-width: 1200px) {
+    display: block;
+  }
+}
+
 .grid {
   display: grid;
   /* Use auto-fit with a flexible min/max so cards flow left-to-right and wrap */
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: var(--space-s);
+  gap: var(--space-m);
 
   a {
     text-decoration: none;
@@ -84,12 +113,26 @@ body {
     flex-direction: column;
     gap: var(--space-xs);
     block-size: 100%;
+
+    /* 7. Animated link underline (hanko ink spread) */
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-size: 0% 2px;
+    background-position: left bottom;
+    background-repeat: no-repeat;
+    transition: background-size 0.3s ease;
+
+    &:hover {
+      background-size: 100% 2px;
+    }
   }
 
   .article-link-wrapper {
     border: 1px solid var(--border-light);
     padding: var(--space-s);
-    background: var(--bg-card);
+    background-color: var(--bg-card);
+    /* 4. Asanoha (麻の葉) pattern on cards */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cg fill='none' stroke='%23c4b9a8' stroke-width='0.3' opacity='0.12'%3E%3Cpath d='M20 0L40 20L20 40L0 20Z'/%3E%3Cpath d='M20 0L20 40'/%3E%3Cpath d='M0 20L40 20'/%3E%3Cpath d='M0 0L20 20L0 40'/%3E%3Cpath d='M40 0L20 20L40 40'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 40px 40px;
     border-radius: 2px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     transition:
@@ -108,6 +151,9 @@ body {
     aspect-ratio: 16/9;
     object-fit: cover;
     display: block;
+    /* 3. Ink wash edge (sumi-e fade) */
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
   }
 
   h2 {
@@ -128,12 +174,12 @@ body {
 
 article {
   display: grid;
-  gap: var(--space-s);
+  gap: var(--space-m);
   grid-template-columns: 1fr;
   max-inline-size: 900px;
   margin-inline: auto;
   background: var(--bg-card);
-  padding: var(--space-m);
+  padding: var(--space-l);
   border: 1px solid var(--border-light);
 
   & h1 {
@@ -142,6 +188,19 @@ article {
     margin-block-start: 0;
     margin-block-end: 0;
     @include trim-capital;
+
+    /* 5. Mon (家紋) crest before heading — plum blossom */
+    &::before {
+      content: "";
+      display: inline-block;
+      inline-size: 1.2em;
+      block-size: 1.2em;
+      margin-inline-end: 0.4em;
+      vertical-align: -0.15em;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='%238c2b2b' stroke-width='1.5' opacity='0.5'%3E%3Ccircle cx='50' cy='30' r='14'/%3E%3Ccircle cx='69' cy='43' r='14'/%3E%3Ccircle cx='62' cy='66' r='14'/%3E%3Ccircle cx='38' cy='66' r='14'/%3E%3Ccircle cx='31' cy='43' r='14'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%238c2b2b' stroke='none' opacity='0.35'/%3E%3C/g%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
   }
 
   & p {
@@ -161,6 +220,33 @@ article {
     display: block;
     border: 1px solid var(--border-light);
   }
+
+  /* 9. Article list styling — hanko dot markers */
+  & ul {
+    list-style: none;
+    padding-inline-start: 1.5em;
+    margin-block: var(--space-xs);
+  }
+
+  & li {
+    @include zen-body;
+    font-size: var(--step-0);
+    line-height: 1.8;
+    position: relative;
+    padding-inline-start: 0.25em;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: -1.2em;
+      inset-block-start: 0.55em;
+      inline-size: 0.5em;
+      block-size: 0.5em;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.65;
+    }
+  }
 }
 
 .changeGrid {
@@ -173,14 +259,33 @@ article {
   align-items: center;
   justify-content: space-between;
   gap: var(--space-s);
-  padding-block-end: var(--space-s);
-  border-block-end: 1px solid var(--border-light);
+  padding-block-end: var(--space-m);
+  margin-block-end: var(--space-xs);
+  border-block-end: none;
+  position: relative;
+
+  /* 2. Noren (暖簾) curtain divider */
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    inset-block-end: 0;
+    block-size: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='12' viewBox='0 0 120 12'%3E%3Cpath d='M0 0 Q15 12 30 0 Q45 12 60 0 Q75 12 90 0 Q105 12 120 0' fill='none' stroke='%23c4b9a8' stroke-width='1'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+    background-size: 120px 12px;
+    opacity: 0.6;
+  }
 }
 
 .article-header h1 {
   @include zen-heading;
   margin: 0;
-  font-size: var(--step-5);
+  font-size: var(--step-3);
+
+  @media (min-width: 768px) {
+    font-size: var(--step-5);
+  }
 }
 
 .closeArticle {
@@ -248,4 +353,35 @@ article {
 /* Suppress outline when focus was programmatically set after a pointer-initiated open */
 .article-header h1[data-suppress-focus]:focus {
   outline: none !important;
+}
+
+/* 6. View transition customisation — fusuma slide-door feel */
+@keyframes vt-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes vt-fade-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+::view-transition-old(root) {
+  animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 400ms cubic-bezier(0.4, 0, 0.2, 1) both vt-fade-in;
 }
