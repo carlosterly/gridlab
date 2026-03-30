@@ -1,11 +1,10 @@
-@import "../framework/framework.scss";
+@use "../framework/framework" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
 
 /* @link https://utopia.fyi/type/calculator?c=320,18,1.2,1240,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
 
 :root {
-  
   --serif: "Lora", serif;
   --sans-serif: "Hind", sans-serif;
 
@@ -147,7 +146,6 @@ figure {
   object-fit: cover;
   object-position: top left;
   @include media(">size-sm") {
-   
     grid-column: 1 / 8;
     grid-row: 4 / 5;
   }

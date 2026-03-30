@@ -1,4 +1,5 @@
-@import "../framework/framework.scss";
+@use "sass:color";
+@use "../framework/framework" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Fanwood+Text:ital@0;1&family=Quattrocento:wght@400;700&display=swap");
 
@@ -130,7 +131,7 @@ nav {
     margin: 7px;
     inline-size: 120px;
     &:hover {
-      background: lighten($page-colour, 10%);
+      background: color.adjust($page-colour, $lightness: 10%);
     }
   }
 }

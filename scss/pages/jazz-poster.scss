@@ -1,4 +1,4 @@
-@import "../framework/framework.scss";
+@use "../framework/framework" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -60,7 +60,6 @@ body {
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-template-rows: repeat(24, minmax(0, 1fr));
   gap: var(--space-2xs);
- 
 }
 
 img {

@@ -1,4 +1,4 @@
-@import "../framework/framework.scss";
+@use "../framework/framework" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
@@ -351,4 +351,3 @@ p {
 .full-content {
   padding-inline: var(--minimum-content-padding);
 }
-

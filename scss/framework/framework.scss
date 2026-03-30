@@ -1,11 +1,12 @@
+@forward "variables";
+@forward "mixins";
+@forward "reset";
+@forward "include-media";
+@forward "base";
+@forward "layout";
+@forward "lbo-grid";
+@forward "animations";
+@forward "utils";
+
 // https://open-props.style/
-@import "https://unpkg.com/open-props";
-@import "variables";
-@import "mixins";
-@import "reset";
-@import "include-media";
-@import "base";
-@import "layout";
-@import "lbo-grid";
-@import "animations";
-@import "utils";
+@import url("https://unpkg.com/open-props");

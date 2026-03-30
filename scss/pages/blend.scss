@@ -1,4 +1,4 @@
-@import "../framework/framework.scss";
+@use "../framework/framework" as *;
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
@@ -53,7 +53,7 @@ body {
 .blend-grid {
   display: grid;
   grid-template-columns: repeat(24, minmax(0, 1fr));
-  grid-template-rows: auto .5fr 1fr;
+  grid-template-rows: auto 0.5fr 1fr;
 
   @include media(">=size-md") {
     grid-template-rows: auto auto 1fr;
@@ -76,7 +76,6 @@ body {
 }
 
 .new-stacking-context {
-
   display: grid;
   grid-template-columns: subgrid;
   grid-template-rows: subgrid;

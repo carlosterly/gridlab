@@ -1,4 +1,4 @@
-@import "../framework/framework.scss";
+@use "../framework/framework" as *;
 
 @import url("https://fonts.googleapis.com/css?family=Black+Ops+One|Oswald");
 
@@ -161,7 +161,6 @@ footer {
 }
 
 .footer__motto {
-  
   @include media(">=size-md") {
     grid-column: 1 / 3;
     align-self: end;

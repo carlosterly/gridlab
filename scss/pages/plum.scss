@@ -1,4 +1,4 @@
-@import "../framework/framework.scss";
+@use "../framework/framework" as *;
 
 // Only import the weights and styles you actually use (200, 400, 700)
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700&display=swap");
