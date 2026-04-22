@@ -40,7 +40,7 @@
   --space-s-l: clamp(1.125rem, 0.6467rem + 2.3913vw, 2.5rem);
 }
 
-a {
+.index__body a {
   text-decoration: none;
 }
 
@@ -86,7 +86,6 @@ a {
   }
 
   @include media(">=size-sm") {
-    display: flex;
     flex-direction: row;
     align-items: end;
     gap: var(--space-s);
@@ -109,7 +108,7 @@ a {
     text-transform: uppercase;
     letter-spacing: 0.04em;
     border-block-end: 2px solid transparent;
-    transition: border-color 0.2s ease-in-out;
+    transition: border-block-end-color 0.2s ease-in-out;
 
     &:hover,
     &:focus-visible {
@@ -211,7 +210,7 @@ a {
   }
 }
 
-ul {
+.index__design-list {
   list-style: none;
   padding: 0;
 }
